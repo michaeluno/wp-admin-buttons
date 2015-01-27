@@ -7,6 +7,11 @@
  * 
  */
 
+/**
+ * Registers a short code.
+ * 
+ * @since   0.0.2
+ */
 class WPAdminButtons_Shortcode {
     
     /**
@@ -19,8 +24,8 @@ class WPAdminButtons_Shortcode {
     /**
      * Returns the output by the given argument.
      */
-    public function replyToGetOutput( $aArgs ) {
-        return getWPAdminButton( $aArgs, false );
+    public function replyToGetOutput( $aArguments ) {
+        return getWPAdminButton( $aArguments );
     }    
 
 }
