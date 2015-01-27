@@ -97,8 +97,8 @@ class WPAdminButtons_Widget extends WPAdminButtons_AdminPageFramework_Widget {
                 'type'          => 'radio',
                 'title'         => __( 'Type', 'wp-admin-buttons' ),
                 'label'         => array(
-                    'button-primary'   =>  __( 'Primary', 'wp-admin-buttons' ),
-                    'button-secondary'   =>  __( 'Secondary', 'wp-admin-buttons' ),
+                    'button-primary'   => __( 'Primary', 'wp-admin-buttons' ),
+                    'button-secondary' => __( 'Secondary', 'wp-admin-buttons' ),
                 ),
                 'default'       => 'button-primary',
             ),  
@@ -134,6 +134,7 @@ class WPAdminButtons_Widget extends WPAdminButtons_AdminPageFramework_Widget {
      * Validates the submitted form data.
      * 
      * Alternatively you may use validation_{instantiated class name} method.
+     * @return      array       The filtered submitted user input array.
      */
     public function validate( $aSubmit, $aStored, $oAdminWidget ) {
         
@@ -148,6 +149,7 @@ class WPAdminButtons_Widget extends WPAdminButtons_AdminPageFramework_Widget {
      * Print out the contents in the front-end.
      * 
      * Alternatively you may use the content_{instantiated class name} method.
+     * @return      string      The content output.
      */
     public function content( $sContent, $aArguments, $aFormData ) {
         

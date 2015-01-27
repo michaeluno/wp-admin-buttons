@@ -21,7 +21,7 @@ function printWPAdminButton( $asArguments ) {
 /**
  * Returns the button HTML output string.
  * @since       0.0.1
- * @return      The output string.
+ * @return      string      The output string.
  */
 function getWPAdminButton( $asArguments ) {
     
