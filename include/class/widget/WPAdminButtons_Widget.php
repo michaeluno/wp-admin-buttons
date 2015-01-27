@@ -141,7 +141,7 @@ class WPAdminButtons_Widget extends WPAdminButtons_AdminPageFramework_Widget {
                     'type'          => 'color',
                     'title'         => __( 'Border Color', 'wp-admin-buttons' )
                         . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',                
-                   'default'   => '', // prevent the value 'transparent' to be set
+                    'default'   => '', // prevent the value 'transparent' to be set
                 ),                         
                 array(
                     'field_id'      => 'label_color',
