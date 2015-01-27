@@ -7,8 +7,8 @@ WP Admin Buttons is an open source WordPress plugin that displays buttons with t
 ## Screenshots ##
 
 <p align="center">
-	<a href="https://lh4.googleusercontent.com/-MhUfmqP17IE/VMdUBdI3YyI/AAAAAAAAB6c/5nowx4W4qBQ/s0/screen-shot.png" title="WP Admin Buttons - Sceens shot">
-		<img src="https://lh4.googleusercontent.com/-MhUfmqP17IE/VMdUBdI3YyI/AAAAAAAAB6c/5nowx4W4qBQ/s600/screen-shot.png" alt="WP Admin Buttons - Sceens shot" />
+	<a href="https://lh4.googleusercontent.com/-7WYs1W1Rhjg/VMdb3OawCjI/AAAAAAAAB7A/TGaxL_iaC6c/s0/screen-shot-3.png" title="WP Admin Buttons - Sceens shot">
+		<img src="https://lh4.googleusercontent.com/-7WYs1W1Rhjg/VMdb3OawCjI/AAAAAAAAB7A/TGaxL_iaC6c/s480/screen-shot-3.png" alt="WP Admin Buttons - Sceens shot" />
 	</a>
 </p>
 
