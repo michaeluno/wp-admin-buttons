@@ -74,7 +74,7 @@ The following parameters can be used for the shortcode or the PHP function of th
 <?php printWPAdminButtons( array( 'type' => 'button-secondary', 'href' => 'http://my-download-url/file.zip' ) ); ?>
 ```
 
-The follwoing color arguments can override the defult colors.
+- The follwoing color arguments can override the defult colors.
 
     - **label_color** - the label text color.
     - **background_color** - the button background color.
@@ -96,7 +96,7 @@ printWPAdminButtons(
 ?>
 ```
 
-The following additional HTML tag attributes can be set.
+- The following additional HTML tag attributes can be set.
 
     - **title** - the `title` attribute.
     - **class** - the `class` attribute.
