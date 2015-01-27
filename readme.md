@@ -82,7 +82,7 @@ printWPAdminButtons(
     )
 ); 
 ?>
-```php
+```
 
 ## Bugs ##
 If you find an issue, let us know [here](https://github.com/michaeluno/wp-admin-buttons/issues)!
