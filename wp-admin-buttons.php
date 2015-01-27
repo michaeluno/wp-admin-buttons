@@ -15,16 +15,16 @@
  */
 class WPAdminButtons_Registry_Base {
 
-	const Version        = '0.0.2';    // <--- DON'T FORGET TO CHANGE THIS AS WELL!!
-	const Name           = 'WP Admin Buttons';  // the full name.
+    const Version        = '0.0.2';    // <--- DON'T FORGET TO CHANGE THIS AS WELL!!
+    const Name           = 'WP Admin Buttons';  // the full name.
     const ShortName      = 'WP Admin Buttons';  // used for a menu title etc.
-	const Description    = 'Displays buttons with the style used in the WordPress administration area.';
-	const URI            = 'http://en.michaeluno.jp/';
-	const Author         = 'miunosoft (Michael Uno)';
-	const AuthorURI      = 'http://en.michaeluno.jp/';
-	const Copyright      = 'Copyright (c) 2015, Michael Uno';
-	const License        = 'GPL v2 or later';
-	const Contributors   = '';
+    const Description    = 'Displays buttons with the style used in the WordPress administration area.';
+    const URI            = 'http://en.michaeluno.jp/';
+    const Author         = 'miunosoft (Michael Uno)';
+    const AuthorURI      = 'http://en.michaeluno.jp/';
+    const Copyright      = 'Copyright (c) 2015, Michael Uno';
+    const License        = 'GPL v2 or later';
+    const Contributors   = '';
 	
 }
 /**
@@ -50,7 +50,7 @@ final class WPAdminButtons_Registry extends WPAdminButtons_Registry_Base {
      * @remark      This is also accessed from uninstall.php so do not remove.
      * @remark      Up to 8 characters as transient name allows 45 characters or less ( 40 for site transients ) so that md5 (32 characters) can be added
      */
-	const TransientPrefix         = 'WPAB_';
+    const TransientPrefix         = 'WPAB_';
     
     /**
      * The hook slug used for the prefix of action and filter hook names.
@@ -65,12 +65,12 @@ final class WPAdminButtons_Registry extends WPAdminButtons_Registry_Base {
      * 
      * These will be accessed from the bootstrap script.
      */
-	const TextDomain                = 'wp-admin-buttons';
-	const TextDomainPath            = '/language';    
+    const TextDomain                = 'wp-admin-buttons';
+    const TextDomainPath            = '/language';    
     	    
-	// These properties will be defined in the setUp() method.
-	static public $sFilePath = '';
-	static public $sDirPath  = '';
+    // These properties will be defined in the setUp() method.
+    static public $sFilePath = '';
+    static public $sDirPath  = '';
 	
     /**
      * Requirements.
@@ -142,25 +142,25 @@ final class WPAdminButtons_Registry extends WPAdminButtons_Registry_Base {
         'main'  => 'wp_admin_button',    
     );
        
-	/**
-	 * Sets up static properties.
-	 */
-	static function setUp( $sPluginFilePath=null ) {
+    /**
+     * Sets up static properties.
+     */
+    static function setUp( $sPluginFilePath=null ) {
 	                    
-		self::$sFilePath = $sPluginFilePath ? $sPluginFilePath : __FILE__;
-		self::$sDirPath  = dirname( self::$sFilePath );
+        self::$sFilePath = $sPluginFilePath ? $sPluginFilePath : __FILE__;
+        self::$sDirPath  = dirname( self::$sFilePath );
 	    
-	}    
+    }    
 	
-	/**
-	 * Returns the URL with the given relative path to the plugin path.
-	 * 
-	 * Example:  WPAdminButtons_Registry::getPluginURL( 'asset/css/meta_box.css' );
+    /**
+     * Returns the URL with the given relative path to the plugin path.
+     * 
+     * Example:  WPAdminButtons_Registry::getPluginURL( 'asset/css/meta_box.css' );
      * @since       0.0.1
-	 */
-	public static function getPluginURL( $sRelativePath='' ) {
-		return plugins_url( $sRelativePath, self::$sFilePath );
-	}
+     */
+    public static function getPluginURL( $sRelativePath='' ) {
+        return plugins_url( $sRelativePath, self::$sFilePath );
+    }
     
     /**
      * Returns the information of this class.
