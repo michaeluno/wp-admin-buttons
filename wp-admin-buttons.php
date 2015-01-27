@@ -88,7 +88,7 @@ final class WPAdminButtons_Registry extends WPAdminButtons_Registry_Base {
             'version'   => '5.0',
             'error'     => 'The plugin requires the MySQL version %1$s or higher.',
         ),
-        'functions'     =>  '', // disabled
+        'functions'     => '', // disabled
         // array(
             // e.g. 'mblang' => 'The plugin requires the mbstring extension.',
         // ),
@@ -101,7 +101,7 @@ final class WPAdminButtons_Registry extends WPAdminButtons_Registry_Base {
             // e.g. 'THEADDONFILE' => 'The plugin requires the ... addon to be installed.',
             // e.g. 'APSPATH' => 'The script cannot be loaded directly.',
         // ),
-        'files'         =>  '', // disabled
+        'files'         => '', // disabled
         // array(
             // e.g. 'home/my_user_name/my_dir/scripts/my_scripts.php' => 'The required script could not be found.',
         // ),
@@ -145,7 +145,7 @@ final class WPAdminButtons_Registry extends WPAdminButtons_Registry_Base {
     /**
      * Sets up static properties.
      */
-    static function setUp( $sPluginFilePath=null ) {
+    static public function setUp( $sPluginFilePath=null ) {
 	                    
         self::$sFilePath = $sPluginFilePath ? $sPluginFilePath : __FILE__;
         self::$sDirPath  = dirname( self::$sFilePath );
@@ -157,6 +157,7 @@ final class WPAdminButtons_Registry extends WPAdminButtons_Registry_Base {
      * 
      * Example:  WPAdminButtons_Registry::getPluginURL( 'asset/css/meta_box.css' );
      * @since       0.0.1
+     * @return      string      The calculated url.
      */
     public static function getPluginURL( $sRelativePath='' ) {
         return plugins_url( $sRelativePath, self::$sFilePath );
