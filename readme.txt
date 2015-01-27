@@ -69,6 +69,7 @@ The following parameters can be used for the shortcode or the PHP function of th
 `
 
 The follwoing color arguments can override the defult colors.
+
     - **label_color** - the label text color.
     - **background_color** - the button background color.
     - **border_color** - the button border color.

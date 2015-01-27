@@ -75,6 +75,7 @@ The following parameters can be used for the shortcode or the PHP function of th
 ```
 
 The follwoing color arguments can override the defult colors.
+
     - **label_color** - the label text color.
     - **background_color** - the button background color.
     - **border_color** - the button border color.
@@ -94,6 +95,33 @@ printWPAdminButtons(
 ); 
 ?>
 ```
+
+The following additional HTML tag attributes can be set.
+
+    - **title** - the `title` attribute.
+    - **class** - the `class` attribute.
+    - **style** - the `inline` style attribute.
+    - **target** - the `target` attribute.
+    - **rel** - the `rel` attribute.
+
+`
+[wp_admin_buttons title="Get the file now!" class="my-custom-class-selector" "style="text-align:center;" target="_blank" rel="nofollow" href="http://my-download-url/file.zip"]
+`
+
+`
+<?php
+echo getWPAdminButtons( 
+    array( 
+        'type'      => 'button-secondary', 
+        'title'     => 'Get the file now!',
+        'class'     => 'my-custom-class-selector',
+        'style'     => 'text-align:center',
+        'target'    => '_blank',
+        'href'      => 'http://my-download-url/file.zip',
+    )
+); 
+?>
+`
 
 ## Bugs ##
 If you find an issue, let us know [here](https://github.com/michaeluno/wp-admin-buttons/issues)!
