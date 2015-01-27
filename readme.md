@@ -5,7 +5,18 @@
 WP Admin Buttons is an open source WordPress plugin that displays buttons with the style used in the WordPress administration area.
 
 ## Screenshots ##
-Coming soon..
+
+<p align="center">
+	<a href="https://lh4.googleusercontent.com/-MhUfmqP17IE/VMdUBdI3YyI/AAAAAAAAB6c/5nowx4W4qBQ/s0/screen-shot.png" title="WP Admin Buttons - Sceens hot">
+		<img src="https://lh4.googleusercontent.com/-MhUfmqP17IE/VMdUBdI3YyI/AAAAAAAAB6c/5nowx4W4qBQ/s144/screen-shot.png" alt="WP Admin Buttons - Sceens hot" />
+	</a>
+</p>
+
+<div style="margin:20px; float:left">
+	<a href="https://lh4.googleusercontent.com/-UAvhM8C_ut4/VMdUBXOjOWI/AAAAAAAAB6Y/AzdEUzPVczo/s0/screen-shot-2.png" title="WP Admin Buttons - Widget Form">
+		<img src="https://lh4.googleusercontent.com/-UAvhM8C_ut4/VMdUBXOjOWI/AAAAAAAAB6Y/AzdEUzPVczo/s144/screen-shot-2.png" alt="WP Admin Buttons - Widget Form" />
+	</a>
+</div>    
 
 ## Installation ##
 
