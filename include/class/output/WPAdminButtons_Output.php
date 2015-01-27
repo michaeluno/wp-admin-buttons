@@ -52,8 +52,7 @@ class WPAdminButtons_Output {
          */
         private function _getFormattedArguments( array $aArguments ) {
             
-            $aArguments = $aArguments + $this->aArguments;
-            return $aArguments;
+            return $aArguments + $this->aArguments;
             
         }
     
@@ -101,21 +100,22 @@ class WPAdminButtons_Output {
          * @return      string      Inline CSS rules.
          */
         private function _getATagStyle( array $aArguments ) {
-
-            $_sATagStyle = isset( $aArguments['style']['a'] )
-                ? $aArguments['style']['a']
-                : $aArguments['style'];    
-
-            if ( trim( $aArguments['label_color'] ) ) {
-                $_sATagStyle .= "; color:{$aArguments['label_color']}";
+            
+            $_aCustomStyle = array(
+                isset( $aArguments['style']['a'] )
+                    ? rtrim( $aArguments['style']['a'], ';' )
+                    : rtrim( $aArguments['style'], ';' ),
+            );
+            $_aInlineStyle = array(
+                'color'             => trim( $aArguments['label_color'] ),
+                'background-color'  => trim( $aArguments['background_color'] ),
+                'border-color'      => trim( $aArguments['border_color'] ),
+            );
+            $_aInlineStyle = array_filter( $_aInlineStyle );    // drop non-true elements.
+            foreach( $_aInlineStyle as $_sProperty => $_sValue ) {
+                $_aCustomStyle[ ] = "{$_sProperty}: {$_sValue}";
             }
-            if ( trim( $aArguments['background_color'] ) ) {
-                $_sATagStyle .= "; background-color:{$aArguments['background_color']}";
-            }               
-            if ( trim( $aArguments['border_color'] ) ) {
-                $_sATagStyle .= "; border-color:{$aArguments['border_color']}";
-            }               
-            return $_sATagStyle;
+            return implode( ';', $_aCustomStyle );
             
         }        
         

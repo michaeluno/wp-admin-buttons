@@ -5,7 +5,7 @@
     Description:    Displays buttons with the style used in the WordPress administration area.
     Author:         Michael Uno
     Author URI:     http://michaeluno.jp
-    Version:        0.0.3
+    Version:        0.0.4
 */
 
 /**
