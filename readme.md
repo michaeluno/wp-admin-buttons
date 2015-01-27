@@ -1,5 +1,7 @@
 # [WP Admin Buttons](http://wordpress.org/plugins/wp-admin-buttons/) #
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/michaeluno/wp-admin-buttons/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/michaeluno/wp-admin-buttons/?branch=master)
+
 ### Welcome to our GitHub Repository
 
 WP Admin Buttons is an open source WordPress plugin that displays buttons with the style used in the WordPress administration area.
