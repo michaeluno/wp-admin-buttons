@@ -15,9 +15,9 @@
  */
 class WPAdminButtons_Registry_Base {
 
-    const Version        = '0.0.2';    // <--- DON'T FORGET TO CHANGE THIS AS WELL!!
-    const Name           = 'WP Admin Buttons';  // the full name.
-    const ShortName      = 'WP Admin Buttons';  // used for a menu title etc.
+    const Version        = '0.0.2'; // <--- DON'T FORGET TO CHANGE THIS AS WELL!!
+    const Name           = 'WP Admin Buttons'; // the full name.
+    const ShortName      = 'WP Admin Buttons'; // used for a menu title etc.
     const Description    = 'Displays buttons with the style used in the WordPress administration area.';
     const URI            = 'http://en.michaeluno.jp/';
     const Author         = 'miunosoft (Michael Uno)';
@@ -50,14 +50,14 @@ final class WPAdminButtons_Registry extends WPAdminButtons_Registry_Base {
      * @remark      This is also accessed from uninstall.php so do not remove.
      * @remark      Up to 8 characters as transient name allows 45 characters or less ( 40 for site transients ) so that md5 (32 characters) can be added
      */
-    const TransientPrefix         = 'WPAB_';
+    const TransientPrefix = 'WPAB_';
     
     /**
      * The hook slug used for the prefix of action and filter hook names.
      * 
      * @remark      The ending underscore is not necessary.
      */
-    const HookSlug                = 'wp_admin_buttons';
+    const HookSlug = 'wp_admin_buttons';
         
     
     /**
@@ -96,7 +96,7 @@ final class WPAdminButtons_Registry extends WPAdminButtons_Registry_Base {
         // array(
             // e.g. 'DOMDocument' => 'The plugin requires the DOMXML extension.',
         // ),
-        'constants'     => '',  // disabled
+        'constants'     => '', // disabled
         // array(
             // e.g. 'THEADDONFILE' => 'The plugin requires the ... addon to be installed.',
             // e.g. 'APSPATH' => 'The script cannot be loaded directly.',
@@ -145,7 +145,7 @@ final class WPAdminButtons_Registry extends WPAdminButtons_Registry_Base {
     /**
      * Sets up static properties.
      */
-    static public function setUp( $sPluginFilePath=null ) {
+    static public function setUp( $sPluginFilePath = null ) {
 	                    
         self::$sFilePath = $sPluginFilePath ? $sPluginFilePath : __FILE__;
         self::$sDirPath  = dirname( self::$sFilePath );
@@ -159,7 +159,7 @@ final class WPAdminButtons_Registry extends WPAdminButtons_Registry_Base {
      * @since       0.0.1
      * @return      string      The calculated url.
      */
-    public static function getPluginURL( $sRelativePath='' ) {
+    public static function getPluginURL( $sRelativePath = '' ) {
         return plugins_url( $sRelativePath, self::$sFilePath );
     }
     
@@ -184,9 +184,9 @@ final class WPAdminButtons_Registry extends WPAdminButtons_Registry_Base {
      * Sets an admin notice.
      * @since       0.0.1
      */ 
-    static public function setAdminNotice( $sMessage, $sClassAttribute='error' ) {
-        if ( ! is_admin() ) { return; }
-        self::$_aAdminNotices[] = array(
+    static public function setAdminNotice( $sMessage, $sClassAttribute = 'error' ) {
+        if ( !is_admin() ) { return; }
+        self::$_aAdminNotices[ ] = array(
             'message'           => $sMessage,
             'class_attribute'   => $sClassAttribute,
         );
@@ -197,12 +197,12 @@ final class WPAdminButtons_Registry extends WPAdminButtons_Registry_Base {
          * @since       0.0.1
          */
         static public function _replyToSetAdminNotice() {
-            foreach( self::$_aAdminNotices as $_aAdminNotice ) {                
-                echo "<div class='" . esc_attr( $_aAdminNotice['class_attribute'] ) . "'>"
+            foreach ( self::$_aAdminNotices as $_aAdminNotice ) {                
+                echo "<div class='".esc_attr( $_aAdminNotice[ 'class_attribute' ] )."'>"
                         ."<p>" 
                             . sprintf( 
-                                '<strong>%1$s</strong>: ' . $_aAdminNotice['message'],
-                                self::Name . ' ' . self::Version
+                                '<strong>%1$s</strong>: '.$_aAdminNotice[ 'message' ],
+                                self::Name.' '.self::Version
                             )
                         . "</p>"
                     . "</div>";
@@ -214,8 +214,8 @@ final class WPAdminButtons_Registry extends WPAdminButtons_Registry_Base {
 WPAdminButtons_Registry::setUp( __FILE__ );
 
 // Run the bootstrap script.    
-include( dirname( __FILE__ ) . '/include/library/admin-page-framework/wp-admin-buttons-admin-page-framework.min.php' );
-include( dirname( __FILE__ ) . '/include/class/boot/WPAdminButtons_Bootstrap.php' );
+include( dirname( __FILE__ ).'/include/library/admin-page-framework/wp-admin-buttons-admin-page-framework.min.php' );
+include( dirname( __FILE__ ).'/include/class/boot/WPAdminButtons_Bootstrap.php' );
 new WPAdminButtons_Bootstrap(
     WPAdminButtons_Registry::$sFilePath,
     WPAdminButtons_Registry::HookSlug    // hook prefix    
