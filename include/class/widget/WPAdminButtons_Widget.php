@@ -54,33 +54,12 @@ class WPAdminButtons_Widget extends WPAdminButtons_AdminPageFramework_Widget {
                 'type'          => 'text',
                 'title'         => __( 'Button Label', 'wp-admin-buttons' ),
                 'default'       => __( 'Download', 'wp-admin-buttons' )
-            ),
-            array(
-                'field_id'      => 'href',
-                'type'          => 'text',
-                'title'         => __( 'Link URL', 'wp-admin-buttons' ),
-            ),
-            array(
-                'field_id'      => 'title_attribute',
-                'type'          => 'text',
-                'title'         => __( 'Title Attribute', 'wp-admin-buttons' )
-                    . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',
-                'description'   => __( 'The text that appeaser on mouse hover.', 'wp-admin-buttons' ),
-            ),
-            array(
-                'field_id'      => 'rel',
-                'type'          => 'text',
-                'title'         => __( 'Rel Attribute', 'wp-admin-buttons' )
-                    . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',
-                'description'   => 'e.g. <code>nofollow</code>',
-            ),            
-            array(
-                'field_id'      => 'target',
-                'type'          => 'text',
-                'title'         => __( 'Target Attribute', 'wp-admin-buttons' )
-                    . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',
-                'description'   => 'e.g. <code>_blank</code>',
-            ),                        
+            )
+        );
+        
+        $this->_addAttributeFields();
+        
+        $this->addSettingFields(
             array(
                 'field_id'      => 'size',
                 'type'          => 'select',
@@ -101,34 +80,79 @@ class WPAdminButtons_Widget extends WPAdminButtons_AdminPageFramework_Widget {
                     'button-secondary' => __( 'Secondary', 'wp-admin-buttons' ),
                 ),
                 'default'       => 'button-primary',
-            ),  
-            array(
-                'field_id'      => 'background_color',
-                'type'          => 'color',
-                'title'         => __( 'Background Color', 'wp-admin-buttons' )
-                    . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',
-                'default'       => '', // prevent the value 'transparent' to be set
-                'description'   => 'e.g. <code>transparent</code>', 
-            ),
-            array(
-                'field_id'      => 'border_color',
-                'type'          => 'color',
-                'title'         => __( 'Border Color', 'wp-admin-buttons' )
-                    . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',                
-               'default'   => '', // prevent the value 'transparent' to be set
-            ),                         
-            array(
-                'field_id'      => 'label_color',
-                'type'          => 'color',
-                'title'         => __( 'Label Color', 'wp-admin-buttons' )
-                    . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',
-                'default'   => '', // prevent the value 'transparent' to be set                    
-            ), 
-            array()
+            )  
         );        
 
+        $this->_addColorFields();
         
     }
+        /**
+         * Adds fields for attributes
+         */
+        private function _addAttributeFields() {    
+            
+            $this->addSettingFields(
+                array(
+                    'field_id'      => 'href',
+                    'type'          => 'text',
+                    'title'         => __( 'Link URL', 'wp-admin-buttons' ),
+                ),
+                array(
+                    'field_id'      => 'title_attribute',
+                    'type'          => 'text',
+                    'title'         => __( 'Title Attribute', 'wp-admin-buttons' )
+                        . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',
+                    'description'   => __( 'The text that appeaser on mouse hover.', 'wp-admin-buttons' ),
+                ),
+                array(
+                    'field_id'      => 'rel',
+                    'type'          => 'text',
+                    'title'         => __( 'Rel Attribute', 'wp-admin-buttons' )
+                        . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',
+                    'description'   => 'e.g. <code>nofollow</code>',
+                ),            
+                array(
+                    'field_id'      => 'target',
+                    'type'          => 'text',
+                    'title'         => __( 'Target Attribute', 'wp-admin-buttons' )
+                        . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',
+                    'description'   => 'e.g. <code>_blank</code>',
+                )                     
+        
+            );          
+        
+        }
+        /**
+         * Adds color fields
+         */
+        private function _addColorFields() {
+            
+            $this->addSettingFields(
+                array(
+                    'field_id'      => 'background_color',
+                    'type'          => 'color',
+                    'title'         => __( 'Background Color', 'wp-admin-buttons' )
+                        . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',
+                    'default'       => '', // prevent the value 'transparent' to be set
+                    'description'   => 'e.g. <code>transparent</code>', 
+                ),
+                array(
+                    'field_id'      => 'border_color',
+                    'type'          => 'color',
+                    'title'         => __( 'Border Color', 'wp-admin-buttons' )
+                        . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',                
+                   'default'   => '', // prevent the value 'transparent' to be set
+                ),                         
+                array(
+                    'field_id'      => 'label_color',
+                    'type'          => 'color',
+                    'title'         => __( 'Label Color', 'wp-admin-buttons' )
+                        . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',
+                    'default'   => '', // prevent the value 'transparent' to be set                    
+                )
+            );              
+            
+        }
     
     /**
      * Validates the submitted form data.
