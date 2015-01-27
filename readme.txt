@@ -35,37 +35,37 @@ The following parameters can be used for the shortcode or the PHP function of th
 `
 
 `
-<?php printWPAdminButtons( array( 'href' => 'http://my-download-url/file.zip) ); ?>
+<?php printWPAdminButtons( array( 'href' => 'http://my-download-url/file.zip') ); ?>
 `
 
 - **label** - the text label shown in the button.
 
 `
-[wp_admin_buttons label="Get" href="http://my-download-url/file.zip" ]
+[wp_admin_buttons label="Get" href="http://my-download-url/file.zip"]
 `
 
 `
-<?php printWPAdminButtons( array( 'label' => 'Get', 'href' => 'href="http://my-download-url/file.zip' ); ?>
+<?php printWPAdminButtons( array( 'label' => 'Get', 'href' => 'http://my-download-url/file.zip' ) ); ?>
 `
 
 - **size** - the button size. This argument accepts either `large`, `medium`, `small`.
 
 `
-[wp_admin_buttons size="large" href="http://my-download-url/file.zip" ]
+[wp_admin_buttons size="large" href="http://my-download-url/file.zip"]
 `
 
 `
-<?php printWPAdminButtons( array( 'size' => 'large', 'href' => 'href="http://my-download-url/file.zip' ); ?>
+<?php printWPAdminButtons( array( 'size' => 'large', 'href' => 'http://my-download-url/file.zip' ) ); ?>
 `
 
 - **type** - the button type. This argument accepts either `button-primary`, or  `buton-secondary`.
 
 `
-[wp_admin_buttons type="button-secondary" href="http://my-download-url/file.zip" ]
+[wp_admin_buttons type="button-secondary" href="http://my-download-url/file.zip"]
 `
 
 `
-<?php printWPAdminButtons( array( 'type' => 'button-secondary', 'href' => 'href="http://my-download-url/file.zip' ); ?>
+<?php printWPAdminButtons( array( 'type' => 'button-secondary', 'href' => 'http://my-download-url/file.zip' ) ); ?>
 `
 
 The follwoing color arguments can override the defult colors.
@@ -74,18 +74,20 @@ The follwoing color arguments can override the defult colors.
     - **border_color** - the button border color.
 
 `
-[wp_admin_buttons label_color="#ccc" background_color="transparent" href="http://my-download-url/file.zip" ]
+[wp_admin_buttons label_color="#ccc" background_color="transparent" href="http://my-download-url/file.zip"]
 `
 
 `
-<?php printWPAdminButtons( 
+<?php 
+printWPAdminButtons(
     array( 
-        'label_color' => '#ccc',
-        'background_color' => 'transparent',
-        'href' => 'href="http://my-download-url/file.zip',
-    ); 
+        'label_color'       => '#ccc',
+        'background_color'  => 'transparent',
+        'href'              => 'http://my-download-url/file.zip',
+    )
+); 
 ?>
-
+`
 
 The following additional HTML tag attributes can be set.
 
@@ -96,22 +98,23 @@ The following additional HTML tag attributes can be set.
     - **rel** - the `rel` attribute.
 
 `
-[wp_admin_buttons title="Get the file now!" class="my-custom-class-selector" "style="text-align:center;" target="_blank" rel="nofollow" href="http://my-download-url/file.zip" ]
+[wp_admin_buttons title="Get the file now!" class="my-custom-class-selector" "style="text-align:center;" target="_blank" rel="nofollow" href="http://my-download-url/file.zip"]
 `
 
 `
-<?php printWPAdminButtons( 
+<?php
+echo getWPAdminButtons( 
     array( 
-        'type' => 'button-secondary', 
-        'title' => 'Get the file now!',
-        'class' => 'my-custom-class-selector',
-        'style' => 'text-align:center',
-        'target' => '_blank',
-        'href' => 'href="http://my-download-url/file.zip',
-    ); 
+        'type'      => 'button-secondary', 
+        'title'     => 'Get the file now!',
+        'class'     => 'my-custom-class-selector',
+        'style'     => 'text-align:center',
+        'target'    => '_blank',
+        'href'      => 'http://my-download-url/file.zip',
+    )
+); 
 ?>
 `
-
 
 
 == Frequently Asked Questions ==
