@@ -70,22 +70,31 @@ class WPAdminButtons_Output {
                 . "<div class='welcome-panel'" 
                         . " style='" . esc_attr( $_sDivTagStyle ) . "'"
                     . ">"
-                    . "<a" 
-                        . " class='" . $this->_getClassAttribute( $this->aArguments )  . "'"
-                        . " href='" . esc_attr( $this->aArguments['href'] )  . "'"
-                        . " title='" . esc_attr( $this->aArguments['title'] )  . "'"
-                        . " style='" . esc_attr( $this->_getATagStyle( $this->aArguments ) )  . "'"
-                        . " target='" . esc_attr( $this->aArguments['target'] )  . "'"
-                        . " rel='" . esc_attr( $this->aArguments['rel'] )  . "'"
-                    . ">"
-                        . $this->aArguments['label']
-                    . "</a>"
+                    . $this->_getATag( $this->aArguments )
                 . "</div>"  // button
             . "</div>"  // wp-core-ui
         ;
         
     }
+        /**
+         * Returns the 'a' tag output.
+         * 
+         * @return      string      The output of the 'a' tag of the button.
+         */
+        private function _getATag( array $aArguments ) {
+            
+            return "<a" 
+                . " class='" . $this->_getClassAttribute( $aArguments )  . "'"
+                . " href='" . esc_attr( $aArguments['href'] )  . "'"
+                . " title='" . esc_attr( $aArguments['title'] )  . "'"
+                . " style='" . esc_attr( $this->_getATagStyle( $aArguments ) )  . "'"
+                . " target='" . esc_attr( $aArguments['target'] )  . "'"
+                . " rel='" . esc_attr( $aArguments['rel'] )  . "'"
+            . ">"
+                . $aArguments['label']
+            . "</a>";            
  
+        }
         /**
          * Returns the inline CSS rules applied to the 'a' tag of the button.
          * 
