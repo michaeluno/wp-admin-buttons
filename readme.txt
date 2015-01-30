@@ -128,6 +128,9 @@ echo getWPAdminButtons(
 
 == Changelog ==
 
+= 1.0.0 =
+- Chagned the version for release.
+
 = 0.0.6 =
 - Fixed a compatibility issue with third-party plugins.
 
