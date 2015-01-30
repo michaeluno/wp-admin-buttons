@@ -4,7 +4,7 @@ Donate link:        http://en.michaeluno.jp/donate
 Tags:               button, buttons, widget, shortcode, admin-ui, style, 
 Requires at least:  3.3
 Tested up to:       4.1.0
-Stable tag:         0.0.1
+Stable tag:         1.0.0
 License:            GPLv2 or later
 License URI:        http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ Displays buttons with the style used in the WordPress administration area.
 
 <h4>Features</h4>
 - **Widget** 
-- **Shortcode** 
+- **Shortcode** - for the parameters see the Other Notes section.
 
 == Installation ==
 
@@ -26,7 +26,7 @@ Displays buttons with the style used in the WordPress administration area.
 == Other Notes ==
 
 = Shortcode and Function Parameters =
-The following parameters can be used for the shortcode or the PHP function of the plugin, <code>printWPAdminButto()</code>
+The following parameters can be used for the shortcode or the PHP function of the plugin, <code>printWPAdminButton()</code>
 
 - **href** - the link url.
 
@@ -35,7 +35,7 @@ The following parameters can be used for the shortcode or the PHP function of th
 `
 
 `
-<?php printWPAdminButto( array( 'href' => 'http://my-download-url/file.zip') ); ?>
+<?php printWPAdminButton( array( 'href' => 'http://my-download-url/file.zip') ); ?>
 `
 
 - **label** - the text label shown in the button.
@@ -45,7 +45,7 @@ The following parameters can be used for the shortcode or the PHP function of th
 `
 
 `
-<?php printWPAdminButto( array( 'label' => 'Get', 'href' => 'http://my-download-url/file.zip' ) ); ?>
+<?php printWPAdminButton( array( 'label' => 'Get', 'href' => 'http://my-download-url/file.zip' ) ); ?>
 `
 
 - **size** - the button size. This argument accepts either `large`, `medium`, `small`.
@@ -55,7 +55,7 @@ The following parameters can be used for the shortcode or the PHP function of th
 `
 
 `
-<?php printWPAdminButto( array( 'size' => 'large', 'href' => 'http://my-download-url/file.zip' ) ); ?>
+<?php printWPAdminButton( array( 'size' => 'large', 'href' => 'http://my-download-url/file.zip' ) ); ?>
 `
 
 - **type** - the button type. This argument accepts either `button-primary`, or  `buton-secondary`.
@@ -65,14 +65,14 @@ The following parameters can be used for the shortcode or the PHP function of th
 `
 
 `
-<?php printWPAdminButto( array( 'type' => 'button-secondary', 'href' => 'http://my-download-url/file.zip' ) ); ?>
+<?php printWPAdminButton( array( 'type' => 'button-secondary', 'href' => 'http://my-download-url/file.zip' ) ); ?>
 `
 
 The follwoing color arguments can override the defult colors.
 
-    - **label_color** - the label text color.
-    - **background_color** - the button background color.
-    - **border_color** - the button border color.
+- **label_color** - the label text color.
+- **background_color** - the button background color.
+- **border_color** - the button border color.
 
 `
 [wp_admin_button label_color="#ccc" background_color="transparent" href="http://my-download-url/file.zip"]
@@ -80,7 +80,7 @@ The follwoing color arguments can override the defult colors.
 
 `
 <?php 
-printWPAdminButto(
+printWPAdminButton(
     array( 
         'label_color'       => '#ccc',
         'background_color'  => 'transparent',
@@ -92,11 +92,11 @@ printWPAdminButto(
 
 The following additional HTML tag attributes can be set.
 
-    - **title** - the `title` attribute.
-    - **class** - the `class` attribute.
-    - **style** - the `inline` style attribute.
-    - **target** - the `target` attribute.
-    - **rel** - the `rel` attribute.
+- **title** - the `title` attribute.
+- **class** - the `class` attribute.
+- **style** - the `inline` style attribute.
+- **target** - the `target` attribute.
+- **rel** - the `rel` attribute.
 
 `
 [wp_admin_button title="Get the file now!" class="my-custom-class-selector" "style="text-align:center;" target="_blank" rel="nofollow" href="http://my-download-url/file.zip"]
@@ -128,7 +128,10 @@ echo getWPAdminButtons(
 
 == Changelog ==
 
-= 1.0.0 =
+= 1.0.1 - 2015/01/31 =
+- Fixed a misspelled function name.
+
+= 1.0.0 - 2015/01/31 =
 - Chagned the version for release.
 
 = 0.0.6 =

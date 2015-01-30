@@ -34,7 +34,7 @@ WP Admin Buttons is an open source WordPress plugin that displays buttons with t
 1. Go to **Dashboard** -> **Appearance** -> **Widgets** and add the **WP Admin Buttons** widget to your proffered sidebar.
 
 ### Shortcode and Function Parameters
-The following parameters can be used for the shortcode or the PHP function of the plugin, `printWPAdminButto()` or `getWPAdminButtons()`.
+The following parameters can be used for the shortcode or the PHP function of the plugin, `printWPAdminButton()` or `getWPAdminButtons()`.
 
 - **href** - the link url.
 
@@ -43,7 +43,7 @@ The following parameters can be used for the shortcode or the PHP function of th
 ```
 
 ```php
-<?php printWPAdminButto( array( 'href' => 'http://my-download-url/file.zip') ); ?>
+<?php printWPAdminButton( array( 'href' => 'http://my-download-url/file.zip') ); ?>
 ```
 
 - **label** - the text label shown in the button.
@@ -53,7 +53,7 @@ The following parameters can be used for the shortcode or the PHP function of th
 ```
 
 ```php
-<?php printWPAdminButto( array( 'label' => 'Get', 'href' => 'http://my-download-url/file.zip' ) ); ?>
+<?php printWPAdminButton( array( 'label' => 'Get', 'href' => 'http://my-download-url/file.zip' ) ); ?>
 ```
 
 - **size** - the button size. This argument accepts either `large`, `medium`, `small`.
@@ -63,7 +63,7 @@ The following parameters can be used for the shortcode or the PHP function of th
 ```
 
 ```php
-<?php printWPAdminButto( array( 'size' => 'large', 'href' => 'http://my-download-url/file.zip' ) ); ?>
+<?php printWPAdminButton( array( 'size' => 'large', 'href' => 'http://my-download-url/file.zip' ) ); ?>
 ```
 
 - **type** - the button type. This argument accepts either `button-primary`, or  `buton-secondary`.
@@ -73,7 +73,7 @@ The following parameters can be used for the shortcode or the PHP function of th
 ```
 
 ```php
-<?php printWPAdminButto( array( 'type' => 'button-secondary', 'href' => 'http://my-download-url/file.zip' ) ); ?>
+<?php printWPAdminButton( array( 'type' => 'button-secondary', 'href' => 'http://my-download-url/file.zip' ) ); ?>
 ```
 
 - The follwoing color arguments can override the defult colors.
@@ -88,7 +88,7 @@ The following parameters can be used for the shortcode or the PHP function of th
 
 ```php
 <?php 
-printWPAdminButto(
+printWPAdminButton(
     array( 
         'label_color'       => '#ccc',
         'background_color'  => 'transparent',

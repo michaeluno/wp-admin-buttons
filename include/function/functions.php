@@ -12,7 +12,7 @@
  * @sinec       0.0.1
  * @return      void
  */
-function printWPAdminButto( $asArguments ) {
+function printWPAdminButton( $asArguments ) {
     
     echo getWPAdminButton( $asArguments );
     
