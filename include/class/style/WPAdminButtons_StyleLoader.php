@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Admin Widget
+ * WP Admin Buttons
  * 
  * http://en.michaeluno.jp/admin-page-framework/
  * Copyright (c) 2015 Michael Uno; Licensed GPLv2

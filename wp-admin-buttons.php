@@ -5,7 +5,7 @@
     Description:    Displays buttons with the style used in the WordPress administration area.
     Author:         Michael Uno
     Author URI:     http://michaeluno.jp
-    Version:        0.0.4
+    Version:        0.0.6
 */
 
 /**
@@ -15,7 +15,7 @@
  */
 class WPAdminButtons_Registry_Base {
 
-    const Version        = '0.0.2'; // <--- DON'T FORGET TO CHANGE THIS AS WELL!!
+    const Version        = '0.0.6'; // <--- DON'T FORGET TO CHANGE THIS AS WELL!!
     const Name           = 'WP Admin Buttons'; // the full name.
     const ShortName      = 'WP Admin Buttons'; // used for a menu title etc.
     const Description    = 'Displays buttons with the style used in the WordPress administration area.';

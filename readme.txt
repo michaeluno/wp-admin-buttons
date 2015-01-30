@@ -26,46 +26,46 @@ Displays buttons with the style used in the WordPress administration area.
 == Other Notes ==
 
 = Shortcode and Function Parameters =
-The following parameters can be used for the shortcode or the PHP function of the plugin, <code>printWPAdminButtons()</code>
+The following parameters can be used for the shortcode or the PHP function of the plugin, <code>printWPAdminButto()</code>
 
 - **href** - the link url.
 
 `
-[wp_admin_buttons href="http://my-download-url/file.zip"]
+[wp_admin_button href="http://my-download-url/file.zip"]
 `
 
 `
-<?php printWPAdminButtons( array( 'href' => 'http://my-download-url/file.zip') ); ?>
+<?php printWPAdminButto( array( 'href' => 'http://my-download-url/file.zip') ); ?>
 `
 
 - **label** - the text label shown in the button.
 
 `
-[wp_admin_buttons label="Get" href="http://my-download-url/file.zip"]
+[wp_admin_button label="Get" href="http://my-download-url/file.zip"]
 `
 
 `
-<?php printWPAdminButtons( array( 'label' => 'Get', 'href' => 'http://my-download-url/file.zip' ) ); ?>
+<?php printWPAdminButto( array( 'label' => 'Get', 'href' => 'http://my-download-url/file.zip' ) ); ?>
 `
 
 - **size** - the button size. This argument accepts either `large`, `medium`, `small`.
 
 `
-[wp_admin_buttons size="large" href="http://my-download-url/file.zip"]
+[wp_admin_button size="large" href="http://my-download-url/file.zip"]
 `
 
 `
-<?php printWPAdminButtons( array( 'size' => 'large', 'href' => 'http://my-download-url/file.zip' ) ); ?>
+<?php printWPAdminButto( array( 'size' => 'large', 'href' => 'http://my-download-url/file.zip' ) ); ?>
 `
 
 - **type** - the button type. This argument accepts either `button-primary`, or  `buton-secondary`.
 
 `
-[wp_admin_buttons type="button-secondary" href="http://my-download-url/file.zip"]
+[wp_admin_button type="button-secondary" href="http://my-download-url/file.zip"]
 `
 
 `
-<?php printWPAdminButtons( array( 'type' => 'button-secondary', 'href' => 'http://my-download-url/file.zip' ) ); ?>
+<?php printWPAdminButto( array( 'type' => 'button-secondary', 'href' => 'http://my-download-url/file.zip' ) ); ?>
 `
 
 The follwoing color arguments can override the defult colors.
@@ -75,12 +75,12 @@ The follwoing color arguments can override the defult colors.
     - **border_color** - the button border color.
 
 `
-[wp_admin_buttons label_color="#ccc" background_color="transparent" href="http://my-download-url/file.zip"]
+[wp_admin_button label_color="#ccc" background_color="transparent" href="http://my-download-url/file.zip"]
 `
 
 `
 <?php 
-printWPAdminButtons(
+printWPAdminButto(
     array( 
         'label_color'       => '#ccc',
         'background_color'  => 'transparent',
@@ -99,7 +99,7 @@ The following additional HTML tag attributes can be set.
     - **rel** - the `rel` attribute.
 
 `
-[wp_admin_buttons title="Get the file now!" class="my-custom-class-selector" "style="text-align:center;" target="_blank" rel="nofollow" href="http://my-download-url/file.zip"]
+[wp_admin_button title="Get the file now!" class="my-custom-class-selector" "style="text-align:center;" target="_blank" rel="nofollow" href="http://my-download-url/file.zip"]
 `
 
 `
@@ -128,5 +128,20 @@ echo getWPAdminButtons(
 
 == Changelog ==
 
+= 0.0.6 =
+- Fixed a compatibility issue with third-party plugins.
+
+= 0.0.5 =
+- Added the ability to restore the previous color when the mouse cursor goes out the button.
+
+= 0.0.4 =
+- Added custom mouse hover color fields.
+
+= 0.0.3 = 
+- Added a description field in the widget form.
+
+= 0.0.2 =
+- Fixed some small bugs.
+
 = 0.0.1 - 2015/01/27 =
-* Released as beta .
+- Released beta.
