@@ -151,15 +151,9 @@ class WPAdminButtons_Output {
         $_sDivTagStyle = isset( $this->aArguments['style']['div'] )
             ? $this->aArguments['style']['div']
             : '';
-            
-        $_sDescriptionAbove = 'above' === $this->aArguments['description_position']
-            ? $this->aArguments['description']
-            : '';
-        $_sDescriptionBelow = 'below' === $this->aArguments['description_position']
-            ? $this->aArguments['description']
-            : '';
-     
-        return $_sDescriptionAbove
+        
+        $_aDescription = $this->_getDescription( $this->aArguments );
+        return $_aDescription['above']
             . "<div class='wp-core-ui' style='margin:1em 0;'>"
                 . "<div class='welcome-panel'" 
                         . " style='" . esc_attr( $_sDivTagStyle ) . "'"
@@ -167,10 +161,20 @@ class WPAdminButtons_Output {
                     . $this->_getATag( $this->aArguments )
                 . "</div>"  // button
             . "</div>"  // wp-core-ui
-            . $_sDescriptionBelow
+            . $_aDescription['below']
             ;
         
     }
+        private function _getDescription( array $aArguments ) {
+            
+            return array(
+                $aArguments['description_position'] => $aArguments['description'],
+            ) + array(
+                'above' => '',
+                'below' => '',
+            );
+        
+        }    
         /**
          * Returns the 'a' tag output.
          * 
@@ -207,10 +211,8 @@ class WPAdminButtons_Output {
             );
 
             $_aInlineStyle = array_filter( $_aInlineStyle );    // drop non-true elements.
+            unset( $_aInlineStyle[ null ], $_aInlineStyle[ '' ] );
             foreach( $_aInlineStyle as $_sProperty => $_sValue ) {
-                if ( empty( $_sProperty ) ) {
-                    continue;
-                }
                 $_aCustomStyle[] = "{$_sProperty}: {$_sValue}";
             }
 
@@ -227,43 +229,60 @@ class WPAdminButtons_Output {
              * @param       array       $aNormalColors  Inline style attribute array for non-mouse-hover.
              */
             private function _getMouseHoverAttributes( array $aArguments, array $aNormalColors ) {
-                             
-                $_aOnMouseHoverColors = $this->oUtil->uniteArrays(
-                    $this->_getFormattedKeysForInlineCSS( $aArguments['custom_colors_on_mouse_hover'] ),
-                    array(
-                        'color'             => $aArguments['label_color_on_mouse_hover'] ? $aArguments['label_color_on_mouse_hover'] : null,
-                        'background-color'  => $aArguments['background_color_on_mouse_hover'] ? $aArguments['background_color_on_mouse_hover'] : null,
-                        'border-color'      => $aArguments['border_color_on_mouse_hover'] ? $aArguments['border_color_on_mouse_hover'] : null,
-                    )
-                );
-                $_aOnMouseHoverColors = array_filter( $_aOnMouseHoverColors );
-                
-                $_aMouseHoverScript = array(
-                    "this.__style = 'undefined' === typeof this.__style ? {} : this.__style",
-                );
-                foreach( $_aOnMouseHoverColors as $_sAttribute => $_sValue ) {
-                    
-                    $_aMouseHoverScript[] = "this.__style[\"{$_sAttribute}\"]=this.style[\"{$_sAttribute}\"]";
-                    $_aMouseHoverScript[] = "this.style[\"{$_sAttribute}\"]='{$_sValue}'";
-                    
-                    // Make sure to have an element to be paserd in order to restore the color.
-                    $aNormalColors[ $_sAttribute ] = isset( $aNormalColors[ $_sAttribute ] )
-                        ? $aNormalColors[ $_sAttribute ]
-                        : '';
-                        
-                }
-                
-                $_aMouseOutScript = array();   
-                foreach( $aNormalColors as $_sAttribute => $_sValue ) {
-                    $_aMouseOutScript[] = "this.style[\"{$_sAttribute}\"]=this.__style[\"{$_sAttribute}\"]";
-                    $_aMouseOutScript[] = "this.__style={}";
-                }
+
                 return  array(                    
-                    'onMouseOver'   => implode( '; ', $_aMouseHoverScript ),
-                    'onMouseOut'    => implode( '; ', $_aMouseOutScript ),
+                    'onMouseOver'   => $this->_getOnMouseOverAttribute( 
+                        $this->_getCustomColorsOnMouseOver( $aArguments ), 
+                        $aNormalColors
+                    ),
+                    'onMouseOut'    => $this->_getOnMouseOutAttribute( $aNormalColors ),
                 );
                 
             }
+                private function _getCustomColorsOnMouseOver( $aArguments ) {
+                    $_aOnMouseHoverColors = $this->oUtil->uniteArrays(
+                        $this->_getFormattedKeysForInlineCSS( $aArguments['custom_colors_on_mouse_hover'] ),
+                        array(
+                            'color'             => $aArguments['label_color_on_mouse_hover'] ? $aArguments['label_color_on_mouse_hover'] : null,
+                            'background-color'  => $aArguments['background_color_on_mouse_hover'] ? $aArguments['background_color_on_mouse_hover'] : null,
+                            'border-color'      => $aArguments['border_color_on_mouse_hover'] ? $aArguments['border_color_on_mouse_hover'] : null,
+                        )
+                    );
+                    return array_filter( $_aOnMouseHoverColors );
+                }
+                private function _getOnMouseOverAttribute( array $aCustomColorsOnMouseOver, array &$aNormalColors ) {
+                                
+                    $_aMouseHoverScript = array(
+                        "this.__style = 'undefined' === typeof this.__style ? {} : this.__style",
+                    );
+                    foreach( $aCustomColorsOnMouseOver as $_sAttribute => $_sValue ) {
+                        
+                        $_aMouseHoverScript[] = "this.__style[\"{$_sAttribute}\"]=this.style[\"{$_sAttribute}\"]";
+                        $_aMouseHoverScript[] = "this.style[\"{$_sAttribute}\"]='{$_sValue}'";
+                        
+                        // Make sure to have an element to be paserd in order to restore the color.
+                        $aNormalColors[ $_sAttribute ] = isset( $aNormalColors[ $_sAttribute ] )
+                            ? $aNormalColors[ $_sAttribute ]
+                            : '';
+                            
+                    }     
+                    return implode( '; ', $_aMouseHoverScript );
+                    
+                }
+                /**
+                 * 
+                 * @remark      Should be called after the abeve method as the $aNormalColors array will be modified.
+                 */
+                private function _getOnMouseOutAttribute( array $aNormalColors ) {
+                    
+                    $_aMouseOutScript = array();   
+                    foreach( $aNormalColors as $_sAttribute => $_sValue ) {
+                        $_aMouseOutScript[] = "this.style[\"{$_sAttribute}\"]=this.__style[\"{$_sAttribute}\"]";
+                        $_aMouseOutScript[] = "this.__style={}";
+                    }                    
+                    return implode( '; ', $_aMouseOutScript );
+                    
+                }                
        
         /**
          * Sanitizes array keys.

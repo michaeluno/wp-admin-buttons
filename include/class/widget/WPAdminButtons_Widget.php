@@ -165,21 +165,21 @@ class WPAdminButtons_Widget extends WPAdminButtons_AdminPageFramework_Widget {
             );
             
             // Color Sections
-            $this->_addCustomColorFields();
-            $this->_addMouseHoverColorFields();
+            $this->_addCustomColorFields( 'custom_colors' );
+            $this->_addCustomColorFields( 'custom_colors_on_mouse_hover' );
             
         }
-            private function _addCustomColorFields() {                
+            private function _addCustomColorFields( $sSectionID ) {
             
                  $this->addSettingSections(            
                     array(
-                       'section_id'     => 'custom_colors',
+                       'section_id'     => $sSectionID,
                        'hidden'         => true,
                        'class'          => 'custom_colors', // appends to a class attribute
                     )
                 );            
                 $this->addSettingFields(
-                    'custom_colors',
+                    $sSectionID,
                     array(
                         'field_id'      => 'background_color',
                         'type'          => 'color',
@@ -201,48 +201,10 @@ class WPAdminButtons_Widget extends WPAdminButtons_AdminPageFramework_Widget {
                         'title'         => __( 'Label Color', 'wp-admin-buttons' )
                             . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',
                         'default'   => '', // prevent the value 'transparent' to be set                    
-                    ),
-                    array()
+                    )
                 );
             }
-            private function _addMouseHoverColorFields() {
-                
-                $this->addSettingSections(                     
-                    array(
-                       'section_id'     => 'custom_colors_on_mouse_hover',
-                       'hidden'         => true,
-                       'class'          => 'custom_colors', // appends to a class attribute
-                    )
-                );            
-                $this->addSettingFields(
-                    'custom_colors_on_mouse_hover',
-                    array(
-                        'field_id'      => 'background_color',
-                        'type'          => 'color',
-                        'title'         => __( 'Background Color on Mouse Hover', 'wp-admin-buttons' )
-                            . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',
-                        'default'       => '', // prevent the value 'transparent' to be set
-                        'description'   => 'e.g. <code>transparent</code>', 
-                    ),
-                    array(
-                        'field_id'      => 'border_color',
-                        'type'          => 'color',
-                        'title'         => __( 'Border Color on Mouse Hover', 'wp-admin-buttons' )
-                            . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',                
-                        'default'   => '', // prevent the value 'transparent' to be set
-                    ),                         
-                    array(
-                        'field_id'      => 'color',
-                        'type'          => 'color',
-                        'title'         => __( 'Label Color on Mouse Hover', 'wp-admin-buttons' )
-                            . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',
-                        'default'   => '', // prevent the value 'transparent' to be set                    
-                    ),
-                    array()                     
-                );
-                
-            }        
-    
+
     /**
      * Validates the submitted form data.
      * 
