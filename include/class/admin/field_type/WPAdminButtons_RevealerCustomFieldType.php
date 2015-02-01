@@ -209,13 +209,10 @@ class WPAdminButtons_RevealerCustomFieldType extends WPAdminButtons_AdminPageFra
                 var _sLastRevealedSelector;
                 this.change( function() {
 
-                    var _oForm = $( this ).closest( 'form' );
-                    
                     // For checkboxes       
                     if ( $( this ).is(':checkbox') ) {
-                        
                         var _sTargetSelector        = $( this ).data( 'reveal' );
-                        var _oElementToReveal       = _oForm.find( _sTargetSelector );
+                        var _oElementToReveal       = $( _sTargetSelector );
                         if ( $( this ).is( ':checked' ) ) {
                             _oElementToReveal.show();
                         } else {
@@ -226,8 +223,7 @@ class WPAdminButtons_RevealerCustomFieldType extends WPAdminButtons_AdminPageFra
                     
                     // For other types (select and radio).
                     var _sTargetSelector        = $( this ).val();
-                    // var _oElementToReveal       = $( _sTargetSelector );
-                    var _oElementToReveal       = _oForm.find( _sTargetSelector );
+                    var _oElementToReveal       = $( _sTargetSelector );
 
                     // Hide the previously hidden element.
                     $( _sLastRevealedSelector ).hide();    
@@ -247,7 +243,7 @@ class WPAdminButtons_RevealerCustomFieldType extends WPAdminButtons_AdminPageFra
         }( jQuery ));";
         
         echo "<script type='text/javascript' class='admin-page-framework-revealer-jQuery-plugin'>{$_sScript}</script>";
-        
+                
     }        
     
 }
