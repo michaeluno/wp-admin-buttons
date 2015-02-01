@@ -129,8 +129,7 @@ echo getWPAdminButtons(
 
 == Changelog ==
 
-= 1.0.2 =
-- Fixed a compatibility issue with a third party page builder plugin.
+= 1.0.2 - 2015/02/01 =
 - Fixed field title labels of the widget form.
 
 = 1.0.1 - 2015/01/31 =
