@@ -201,16 +201,12 @@ class WPAdminButtons_Output {
             );
             $_aCustomStyle = array_filter( $_aCustomStyle );
 
-            $_aInlineStyle = $this->oUtil->uniteArrays(
-                $this->_getFormattedKeysForInlineCSS( $aArguments['custom_colors'] ),
-                array(
+            $_aInlineStyle = array_filter( $this->_getFormattedKeysForInlineCSS( $aArguments['custom_colors'] ), array( $this, 'isNotNull' ) )
+                + array(
                     'color'             => $aArguments['label_color'] ? $aArguments['label_color'] : null,
                     'background-color'  => $aArguments['background_color'] ? $aArguments['background_color'] : null,
                     'border-color'      => $aArguments['border_color'] ? $aArguments['border_color'] : null,
-                )
-            );
-
-            $_aInlineStyle = array_filter( $_aInlineStyle );    // drop non-true elements.
+                );
             unset( $_aInlineStyle[ null ], $_aInlineStyle[ '' ] );
             foreach( $_aInlineStyle as $_sProperty => $_sValue ) {
                 $_aCustomStyle[] = "{$_sProperty}: {$_sValue}";
@@ -240,14 +236,12 @@ class WPAdminButtons_Output {
                 
             }
                 private function _getCustomColorsOnMouseOver( $aArguments ) {
-                    $_aOnMouseHoverColors = $this->oUtil->uniteArrays(
-                        $this->_getFormattedKeysForInlineCSS( $aArguments['custom_colors_on_mouse_hover'] ),
-                        array(
+                    $_aOnMouseHoverColors = array_filter( $this->_getFormattedKeysForInlineCSS( $aArguments['custom_colors_on_mouse_hover'] ), array( $this, 'isNotNull' ) )
+                        + array(
                             'color'             => $aArguments['label_color_on_mouse_hover'] ? $aArguments['label_color_on_mouse_hover'] : null,
                             'background-color'  => $aArguments['background_color_on_mouse_hover'] ? $aArguments['background_color_on_mouse_hover'] : null,
                             'border-color'      => $aArguments['border_color_on_mouse_hover'] ? $aArguments['border_color_on_mouse_hover'] : null,
-                        )
-                    );
+                        );
                     return array_filter( $_aOnMouseHoverColors );
                 }
                 private function _getOnMouseOverAttribute( array $aCustomColorsOnMouseOver, array &$aNormalColors ) {
@@ -342,6 +336,16 @@ class WPAdminButtons_Output {
                 }
                 return $_sClass;
                 
-            }               
+            }
+    
+    /**
+     * Checks if the given value is null or not.
+     * Used for array_filter() to drop null elements to unite arrays.
+     * 
+     * @since   1.0.2
+     */
+    public function isNotNull( $mValue ) {
+        return ! is_null( $mValue );
+    }
         
 }
