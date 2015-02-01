@@ -166,10 +166,10 @@ class WPAdminButtons_Widget extends WPAdminButtons_AdminPageFramework_Widget {
             
             // Color Sections
             $this->_addCustomColorFields( 'custom_colors' );
-            $this->_addCustomColorFields( 'custom_colors_on_mouse_hover' );
+            $this->_addCustomColorFields( 'custom_colors_on_mouse_hover', ' ' . __( 'on Mouse Over', 'wp-admin-buttons' ) );
             
         }
-            private function _addCustomColorFields( $sSectionID ) {
+            private function _addCustomColorFields( $sSectionID, $sSubTitle='' ) {
             
                  $this->addSettingSections(            
                     array(
@@ -183,7 +183,7 @@ class WPAdminButtons_Widget extends WPAdminButtons_AdminPageFramework_Widget {
                     array(
                         'field_id'      => 'background_color',
                         'type'          => 'color',
-                        'title'         => __( 'Background Color', 'wp-admin-buttons' )
+                        'title'         => __( 'Background Color', 'wp-admin-buttons' ) . $sSubTitle
                             . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',
                         'default'       => '', // prevent the value 'transparent' to be set
                         'description'   => 'e.g. <code>transparent</code>', 
@@ -191,14 +191,14 @@ class WPAdminButtons_Widget extends WPAdminButtons_AdminPageFramework_Widget {
                     array(
                         'field_id'      => 'border_color',
                         'type'          => 'color',
-                        'title'         => __( 'Border Color', 'wp-admin-buttons' )
+                        'title'         => __( 'Border Color', 'wp-admin-buttons' ) . $sSubTitle
                             . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',                
                         'default'   => '', // prevent the value 'transparent' to be set
                     ),                         
                     array(
                         'field_id'      => 'color',
                         'type'          => 'color',
-                        'title'         => __( 'Label Color', 'wp-admin-buttons' )
+                        'title'         => __( 'Label Color', 'wp-admin-buttons' ) . $sSubTitle
                             . ' (' . __( 'optional', 'wp-admin-buttons' ) . ')',
                         'default'   => '', // prevent the value 'transparent' to be set                    
                     )
