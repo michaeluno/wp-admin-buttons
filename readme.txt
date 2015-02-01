@@ -1,20 +1,21 @@
 ﻿=== WP Admin Buttons ===
 Contributors:       Michael Uno, miunosoft
 Donate link:        http://en.michaeluno.jp/donate
-Tags:               button, buttons, widget, shortcode, admin-ui, style, 
+Tags:               button, buttons, widget, shortcode, admin-ui, style, link button
 Requires at least:  3.3
 Tested up to:       4.1.0
-Stable tag:         1.0.0
+Stable tag:         1.0.1
 License:            GPLv2 or later
 License URI:        http://www.gnu.org/licenses/gpl-2.0.html
 
-Displays buttons with the style used in the WordPress administration area.
+Displays WordPress admin style buttons in the front end.
 
 == Description ==
 
 <h4>Features</h4>
 - **Widget** 
 - **Shortcode** - for the parameters see the Other Notes section.
+- **Custom Colors** - set your favorite colors.
 
 == Installation ==
 
@@ -127,6 +128,9 @@ echo getWPAdminButtons(
 2. ***Front-end***
 
 == Changelog ==
+
+= 1.0.2 =
+- Fixed field title labels of the widget form.
 
 = 1.0.1 - 2015/01/31 =
 - Fixed a misspelled function name.
