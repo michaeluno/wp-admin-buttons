@@ -4,7 +4,7 @@
 
 ### Welcome to our GitHub Repository
 
-WP Admin Buttons is an open source WordPress plugin that displays buttons with the style used in the WordPress administration area.
+WP Admin Buttons is an open source WordPress plugin that displays WordPress admin style buttons in the front end.
 
 ## Screenshots ##
 

@@ -2,10 +2,10 @@
 /* 
     Plugin Name:    WP Admin Buttons
     Plugin URI:     http://en.michaeluno.jp/wp-admin-buttons
-    Description:    Displays buttons with the style used in the WordPress administration area.
+    Description:    Displays WordPress admin style buttons in the front end.
     Author:         Michael Uno
     Author URI:     http://michaeluno.jp
-    Version:        1.0.1
+    Version:        1.0.2
 */
 
 /**
@@ -15,10 +15,10 @@
  */
 class WPAdminButtons_Registry_Base {
 
-    const Version        = '1.0.1'; // <--- DON'T FORGET TO CHANGE THIS AS WELL!!
+    const Version        = '1.0.2'; // <--- DON'T FORGET TO CHANGE THIS AS WELL!!
     const Name           = 'WP Admin Buttons'; // the full name.
     const ShortName      = 'WP Admin Buttons'; // used for a menu title etc.
-    const Description    = 'Displays buttons with the style used in the WordPress administration area.';
+    const Description    = 'Displays WordPress admin style buttons in the front end.';
     const URI            = 'http://en.michaeluno.jp/';
     const Author         = 'miunosoft (Michael Uno)';
     const AuthorURI      = 'http://en.michaeluno.jp/';
